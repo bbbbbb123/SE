@@ -1,10 +1,10 @@
 from flask import *
-from waitress import *
+#from waitress import *
 from datetime import datetime
 import Calculator as calculator
 app = Flask(__name__)
 
-serve(app, host='127.0.0.1', port=8080)
+#serve(app, host='127.0.0.1', port=8080)
 
 @app.route('/')
 @app.route('/index')
