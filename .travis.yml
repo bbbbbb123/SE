@@ -11,7 +11,7 @@ script: true
 
 script:
  - python app_run.py
- - export FLASK_ENV=development
+
 
 deploy:
  provider: heroku
