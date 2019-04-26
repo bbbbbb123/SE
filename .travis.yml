@@ -11,7 +11,7 @@ script: true
   - nosetests --with-coverage --coverage report
 
 script:
- - python app_run.py test
+ - python app_run.py
 
 
 after_script:
