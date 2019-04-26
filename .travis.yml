@@ -32,4 +32,4 @@ deploy:
 
  on:
     repo: bbbbbb123/SE
-    run: "web gunicorn app_run:app"
+    run: "web: gunicorn app_run:app"
