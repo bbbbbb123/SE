@@ -10,7 +10,7 @@ script: true
  - nosetests --with-coverage --coverage report
 
 script:
- - python app_run.py
+ - python TestCalculator.py
 
 
 deploy:
