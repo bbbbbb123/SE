@@ -10,7 +10,9 @@ script:
  - nosetests --with-coverage --coverage report
 
 script:
+ - python Calculator.py
  - python app_run.py
+
 
 deploy:
  provider: heroku
