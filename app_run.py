@@ -34,7 +34,7 @@ def divided():
     b = num(request.args.get('b'))
     return str(calculator.divided(a,b))
 
-
+@app.route('/num')
 def num(s):
     try:
         return int(s)
