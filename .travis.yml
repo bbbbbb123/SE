@@ -11,15 +11,15 @@ script: true
   - nosetests --with-coverage --coverage report
 
 script:
- - pytest
+ - python app_run.py test
 
 
 after_script:
-  - coveralls
+ - coveralls
  
 
 after_success:
-  - codecov
+ - codecov
 
 
 deploy:
