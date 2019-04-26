@@ -3,9 +3,25 @@ language: python
 python:
  - "3.6"
 
+install:
+ - pip install -r requirements.txt
+
 script:
  - nosetests --with-coverage --coverage report
 
-
 script:
  - python TestCalculator.py
+
+deploy:
+ provider: heroku
+
+ api_key: 
+    secure:7b4b9bd7-3510-4111-ad4c-904075ffe866
+
+ app: heroku-test-lab4-2
+
+ on:
+  repo: bbbbbb123/SE
+
+ run:
+  "web: gunicorn app_run:app"
