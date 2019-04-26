@@ -16,6 +16,7 @@ script:
 
 deploy:
  provider: heroku
+ run: "web: gunicorn app_run:app"
 
  api_key: 
     secure: 7b4b9bd7-3510-4111-ad4c-904075ffe866
@@ -24,4 +25,3 @@ deploy:
 
  on:
     repo: bbbbbb123/SE
- run: "web gunicorn app_run:app"
