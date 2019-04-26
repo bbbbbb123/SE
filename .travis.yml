@@ -22,6 +22,6 @@ deploy:
  app: heroku-test-lab4-2
 
  on:
-  repo: bbbbbb123/SE
+    repo: bbbbbb123/SE
 
- run: "web gunicorn app_run:app"
+ run: "web: gunicorn app_run:app"
