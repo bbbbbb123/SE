@@ -11,7 +11,7 @@ script: true
   - nosetests --with-coverage --coverage report
 
 script:
- - python app_run.py
+ - python TestCalculator.py
 
 
 after_script:
@@ -32,5 +32,4 @@ deploy:
 
  on:
     repo: bbbbbb123/SE
-
- run: "web: gunicorn app_run:app"
+    run: "web gunicorn app_run:app"
