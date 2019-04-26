@@ -14,14 +14,6 @@ script:
  - python TestCalculator.py
 
 
-after_script:
- - coveralls
- 
-
-after_success:
- - codecov
-
-
 deploy:
  provider: heroku
 
