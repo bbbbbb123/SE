@@ -21,7 +21,7 @@ deploy:
 
  app: heroku-test-lab4-2
 
- on: production
+ on:
   repo: bbbbbb123/SE
 
  run:
