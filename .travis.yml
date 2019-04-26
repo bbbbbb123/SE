@@ -10,7 +10,6 @@ script: true
  - nosetests --with-coverage --coverage report
 
 script:
- - python Calculator.py
  - python app_run.py
 
 
@@ -22,7 +21,7 @@ deploy:
 
  app: heroku-test-lab4-2
 
- on:
+ on: 
   repo: bbbbbb123/SE
 
  run:
