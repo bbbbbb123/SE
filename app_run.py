@@ -1,6 +1,5 @@
 from flask import *
 from datetime import datetime
-import Calculator as calculator
 app = Flask(__name__)
 
 
@@ -8,37 +7,32 @@ app = Flask(__name__)
 @app.route('/index')
 def index():
     data = "Deploying a Flask App To Heroku"
-    return render_template('index.html')
+    data_UserData = UserData.query.all()
+    history_dic = {}
+    history_list = []
+    for _data in data_UserData:
+        history_dic['Name'] = _data.Name
+        history_dic['Id'] = _data.Id
+        history_dic['Description'] = _data.Description
+        history_dic['CreateDate'] = _data.CreateDate.strftime('%Y/%m/%d %H:%M:%S')
+        history_list.append(history_dic)
+        history_dic = {}
+    return render_template('index.html', **locals())
 
-@app.route('/add')
-def add():
-    a = num(request.args.get('a'))
-    b = num(request.args.get('b'))
-    return str(calculator.add(a,b))
 
-@app.route('/minus')
-def minus():
-    a = num(request.args.get('a'))
-    b = num(request.args.get('b'))
-    return str(calculator.minus(a,b))
-
-@app.route('/times')
-def times():
-    a = num(request.args.get('a'))
-    b = num(request.args.get('b'))
-    return str(calculator.times(a,b))
-
-@app.route('/divided')
-def divided():
-    a = num(request.args.get('a'))
-    b = num(request.args.get('b'))
-    return str(calculator.divided(a,b))
-
-def num(s):
-    try:
-        return int(s)
-    except ValueError:
-        return float(s)
+@app.route('/API/add_data', methods=['POST'])
+def add_data():
+    name = request.form['name']
+    description = request.form['description']
+    if name != "" and description != "":
+        add_data = UserData(
+            Name=name,
+            Description=description,
+            CreateDate=datetime.now()
+        )
+        db.session.add(add_data)
+        db.session.commit()
+    return redirect('index')
 
 if __name__ == '__main__':
     app.run(debug=True)
